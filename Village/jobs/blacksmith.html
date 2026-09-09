@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Village — Forgeron</title>
+<link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body class="blacksmith-screen" data-job="blacksmith">
+<header class="topbar">
+<div class="brand"><div class="brand-mark">🔥</div><div><h1>Forgeron</h1><div class="version">VIL0.3.19 — Atelier du joueur au premier plan</div></div></div>
+<div class="top-actions"><a class="btn" href="../townhall.html">🏛️ Mairie</a><a class="btn" href="../warehouse.html">📦 Entrepôt</a><button class="btn" id="saveBlacksmithBtn">Sauvegarder</button><a class="btn primary" href="../index.html">← Retour au village</a></div>
+</header>
+<main class="job-shell blacksmith-shell">
+<section class="job-art-hero blacksmith-hero"><div class="job-art-overlay"></div><div class="job-art-content">
+<div class="eyebrow">Forge du village</div>
+<h2>Lire le métal, conduire le feu, frapper au bon moment</h2>
+<p>Le Mineur apporte désormais jusqu’au minerai d’argent et aux cristaux profonds. Le Forgeron conduit le feu, élabore ses nuances, construit des postes avancés et transforme ces matières coûteuses en pièces capables de satisfaire les ouvrages les plus exigeants.</p>
+<div class="job-flow-banner"><span>⛏️ Lire les minerais</span><span>🔥 Conduire le foyer</span><span>🧱 Élaborer les nuances</span><span>💎 Travailler les métaux rares</span><span>🏛️ Répondre aux mandats d’exception</span><span>👑 Faire reconnaître sa maîtrise</span></div>
+<div class="job-hero-stats"><div class="hero-stat-card"><span>Foyer</span><b>La chauffe et le procédé font la différence avant même le marteau.</b></div><div class="hero-stat-card"><span>Métallurgie</span><b>Nuances, alliages et traitements ouvrent les commandes d’élite.</b></div><div class="hero-stat-card"><span>Prestige</span><b>Les ouvrages rares et jurés installent durablement la réputation.</b></div></div>
+<div class="job-manual-note"><b>La maîtrise ne s’automatise pas.</b> L’autonomie peut soutenir la réserve de fer courant, mais aucun sceau, aucune recommandation, aucun métal rare ni mandat juré ne peut être obtenu sans pratique active et lots traçables.</div>
+</div><div class="hero-corner-badge"><span>Atelier chaud</span><b>Forge en activité</b><small>Fonte · façonnage · finition</small></div></section>
+<section class="job-metrics standard-metrics" id="blacksmithMetrics"></section>
+<section class="job-standard-status" id="blacksmithStatus"></section><div class="job-workshop-row">
+<section class="job-workshop">
+<div class="job-workshop-head"><div><div class="eyebrow">Travail du joueur · le cœur du métier</div><h2>Foyer &amp; enclume — choisir la pièce, conduire le travail</h2></div><span class="job-workshop-badge">Forge manuelle · lots métallurgiques</span></div>
+<div class="job-workshop-body"><div class="job-workshop-scene-col"><div class="work-scene blacksmith" id="blacksmithScene"><div class="forge-wall"></div><div class="forge-window"></div><div class="forge-hearth"><i></i></div><div class="forge-anvil">⚒️</div><div class="forge-spark sp1"></div><div class="forge-spark sp2"></div><div class="forge-spark sp3"></div><div class="work-tool">🔨</div><div class="work-impact"></div><div class="work-scene-vignette"></div><div class="work-scene-tags" data-scene-mirror="🔥@#blacksmithStatus|👑@#blacksmithMetrics"></div><div class="work-scene-status" id="blacksmithSceneStatus">🔥 Forge prête à travailler</div></div><div class="workshop-task"><div class="workshop-task-head"><b>Travail en cours</b><span class="muted">Une opération active à la fois</span></div><div class="panel-body" id="blacksmithTask"></div></div></div><div class="job-workshop-controls"><div class="workshop-callout"><span>🔥</span><div><b>La recette ne suffit pas</b><small>Le choix du procédé, des gestes, de la nuance et des traitements décide de la qualité fonctionnelle de la pièce.</small></div></div><div class="workshop-secondary"><a class="btn" href="#fireTab">🔥 Régler le foyer</a><a class="btn" href="#metallurgyTab">🧱 Alliages &amp; traitements</a><a class="btn" href="#advancedTab">💎 Forge avancée</a></div></div></div>
+<div class="job-workshop-bench"><div class="job-workshop-bench-head"><div><div class="eyebrow">Établi de forge</div><b>Travaux disponibles</b></div><span class="muted">Fonte · façonnage · acier · pièces rares</span></div><div class="panel-body" id="blacksmithRecipes"></div></div></section>
+<aside class="autonomy-aside"><div><div class="eyebrow">En arrière-plan</div><b>Automatisation de la Forge</b><small>Réserve de fer courant uniquement. Les alliages, traitements, métaux rares, sceaux et mandats jurés restent entièrement manuels.</small></div><div class="autonomy-aside-stats"><div><span>Emplacements</span><b data-autonomy-slots="">—</b></div><div><span>File</span><b data-autonomy-queue="">—</b></div></div><div data-autonomy-orders=""></div><a class="autonomy-aside-link" data-open-autonomy="" href="#">Gérer les jobs autonomes →</a></aside>
+</div>
+<div class="job-workspace">
+<aside aria-label="Navigation du métier Forgeron" class="job-nav">
+<div class="job-nav-head"><small>Métier</small><b>🔥 Forgeron</b><span>Section : <strong data-job-current-section="">Forge</strong></span></div>
+<div class="job-nav-group"><span class="job-nav-group-title">Atelier</span>
+<button class="tab active" data-tab="activity"><span>🔨</span><span><b class="job-nav-label">Stock &amp; journal</b><small>Matières &amp; registre de Forge</small></span></button>
+<button class="tab" data-tab="knowledge"><span>📚</span><span><b class="job-nav-label">Savoir &amp; gestes</b><small>Métaux, compétences &amp; techniques</small></span></button>
+<button class="tab" data-tab="fire"><span>🔥</span><span><b class="job-nav-label">Conduite du feu</b><small>Précision, rythme &amp; qualité</small></span></button>
+<button class="tab" data-tab="metallurgy"><span>🧱</span><span><b class="job-nav-label">Alliages &amp; traitements</b><small>Nuances, cycles &amp; propriétés</small></span></button>
+<button class="tab" data-tab="advanced"><span>💎</span><span><b class="job-nav-label">Forge avancée</b><small>Métaux rares &amp; mandats</small></span></button>
+<button class="tab" data-tab="lots"><span>⬛</span><span><b class="job-nav-label">Lots métalliques</b><small>Qualité &amp; stockage</small></span></button><button class="tab" data-tab="autonomy"><span>⚙️</span><span><b class="job-nav-label">Automatisation</b><small>Jobs autonomes de la Forge</small></span></button>
+</div>
+<div class="job-nav-group"><span class="job-nav-group-title">Carrière</span>
+<button class="tab" data-tab="career"><span>📜</span><span><b class="job-nav-label">Grades &amp; contrats</b><small>Promotions &amp; commanditaires</small></span></button>
+<button class="tab" data-tab="equipment"><span>🧰</span><span><b class="job-nav-label">Équipement</b><small>Outils, usure &amp; installations</small></span></button>
+<button class="tab" data-tab="economy"><span>💰</span><span><b class="job-nav-label">Économie</b><small>Marché métallurgique</small></span></button>
+<button class="tab" data-tab="specialization"><span>🧭</span><span><b class="job-nav-label">Spécialisation</b><small>Voie &amp; talents</small></span></button>
+<button class="tab" data-tab="mastery"><span>👑</span><span><b class="job-nav-label">Maîtrise</b><small>Sceaux &amp; consécration</small></span></button>
+</div>
+<div class="job-nav-group"><span class="job-nav-group-title">Suivi</span>
+<button class="tab" data-tab="progression"><span>📈</span><span><b class="job-nav-label">Progression</b><small>Niveaux &amp; production</small></span></button>
+<button class="tab" data-tab="future"><span>🗺️</span><span><b class="job-nav-label">Développement</b><small>Prochaines étapes</small></span></button>
+</div>
+</aside>
+<div class="job-content">
+<section class="job-tab-panel hidden" id="autonomyTab"><section class="panel autonomous-work-panel"><div class="panel-head"><div><div class="eyebrow">Production parallèle</div><h2>Autonomie de la Forge</h2></div><span class="muted">Débloquée après les premiers apprentissages</span></div><div class="panel-body" id="jobAutonomy"></div></section></section><section class="job-tab-panel" id="activityTab">
+<div class="job-work-grid lower-grid">
+<section class="panel"><div class="panel-head"><h2>Matières de la Forge</h2><span class="muted">Stock partagé du village</span></div><div class="panel-body" id="blacksmithStock"></div></section>
+<section class="panel"><div class="panel-head"><h2>Journal du Forgeron</h2></div><div class="panel-body log" id="blacksmithLog"></div></section>
+</div>
+</section>
+<section class="job-tab-panel hidden" id="knowledgeTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Carnet métallurgique</div><h2>Connaissance de la matière</h2></div><span class="muted">Repéré → Compris → Analysé → Maîtrisé</span></div><div class="panel-body" id="blacksmithKnowledge"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Apprentissage par la pratique</div><h2>Compétences techniques</h2></div><span class="muted">Lecture · feu · marteau · finition</span></div><div class="panel-body" id="blacksmithSkills"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Gestes de métier</div><h2>Techniques disponibles</h2></div><span class="muted">Chaque geste exige compétence + connaissance</span></div><div class="panel-body" id="blacksmithTechniques"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="fireTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Le feu est un choix technique</div><h2>Conduite du foyer</h2></div><span class="muted">Le mode choisi affecte durée et qualité</span></div><div class="panel-body" id="blacksmithMethods"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Principe de qualité</h2></div><div class="panel-body"><div class="blacksmith-quality-explainer"><div><span>⛏️</span><b>Matière d’entrée</b><small>Un lot de minerai pur et propre donne une meilleure base.</small></div><i>→</i><div><span>🔥</span><b>Conduite du feu</b><small>Le Forgeron choisit entre précision et vitesse.</small></div><i>→</i><div><span>🏗️</span><b>Niveau de Forge</b><small>Une installation plus avancée stabilise les résultats.</small></div><i>→</i><div><span>⬛</span><b>Lot final</b><small>La qualité est conservée jusqu’au stockage et aux futurs contrats.</small></div></div></div></section>
+</section>
+<section class="job-tab-panel hidden" id="metallurgyTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Nuances métallurgiques</div><h2>Alliages d’acier</h2></div><span class="muted">Une même ressource, des propriétés réellement différentes</span></div><div class="panel-body" id="blacksmithAlloys"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Cycles après forge</div><h2>Traitements thermiques &amp; finition</h2></div><span class="muted">Normaliser · recuire · tremper · revenir · calibrer</span></div><div class="panel-body" id="blacksmithTreatments"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Qualité fonctionnelle</div><h2>Propriétés des pièces</h2></div><span class="muted">Dureté ≠ qualité totale</span></div><div class="panel-body" id="blacksmithPieceQuality"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="advancedTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Matières de profondeur</div><h2>Métaux &amp; alliages rares</h2></div><span class="muted">Argent · acier argenté · acier cristallin</span></div><div class="panel-body" id="blacksmithRareMetals"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Atelier supérieur</div><h2>Installations de Forge avancée</h2></div><span class="muted">Construire une capacité, pas simplement acheter un bonus</span></div><div class="panel-body" id="blacksmithAdvancedStations"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Travaux uniques</div><h2>Commandes d’exception</h2></div><span class="muted">Une seule validation · cahiers des charges extrêmes</span></div><div class="panel-body" id="blacksmithExceptionalOrders"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="lotsTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Sortie de l’atelier</div><h2>Lots métallurgiques</h2></div><span class="muted">Les pièces restent à la Forge tant qu’elles ne sont pas stockées</span></div><div class="panel-body" id="blacksmithLots"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="careerTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Carrière professionnelle</div><h2>Grade &amp; prochaine promotion</h2></div><span class="muted">Le niveau seul ne suffit pas</span></div><div class="panel-body" id="blacksmithRank"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Réseau de métier</div><h2>Commanditaires</h2></div><span class="muted">Confiance, accès &amp; spécialité</span></div><div class="panel-body" id="blacksmithClients"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Cahiers des charges</div><h2>Propositions de contrats</h2></div><span class="muted">Grade · réputation · confiance · qualité</span></div><div class="panel-body" id="blacksmithOffers"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Contrats actifs</h2><span class="muted">Les lots compatibles sont comptés automatiquement</span></div><div class="panel-body" id="blacksmithContracts"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Historique professionnel</h2><span class="muted">Livraisons, échecs &amp; travaux remarquables</span></div><div class="panel-body" id="blacksmithHistory"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="equipmentTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Outillage professionnel</div><h2>Outils du Forgeron</h2></div><span class="muted">Usure · maîtrise · efficacité · entretien</span></div><div class="panel-body" id="blacksmithTools"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Aménagement de la Forge</div><h2>Installations &amp; protection</h2></div><span class="muted">Foyer · enclume · sécurité</span></div><div class="panel-body" id="blacksmithGear"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="economyTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Débouchés métallurgiques</div><h2>Marché de la Forge</h2></div><span class="muted">Demande locale · qualité · marque du Forgeron</span></div><div class="panel-body" id="blacksmithMarket"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Lots traçables à vendre</h2><span class="muted">Les meilleurs lots valent davantage que le stock courant</span></div><div class="panel-body" id="blacksmithMarketLots"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Bilan économique</h2><span class="muted">Ventes · contrats · équipement · entretien</span></div><div class="panel-body" id="blacksmithEconomySummary"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="specializationTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Orientation professionnelle</div><h2>Spécialisations du Forgeron</h2></div><span class="muted">Maître du feu · Forgeur d’ouvrage · Contrôleur métallurgique</span></div><div class="panel-body" id="blacksmithSpecializations"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="masteryTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Dossier de consécration</div><h2>Sceaux de maîtrise</h2></div><span class="muted">Feu · enclume · métaux rares · service</span></div><div class="panel-body" id="blacksmithMasterySeals"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Reconnaissance professionnelle</div><h2>Recommandations des commanditaires</h2></div><span class="muted">La confiance acquise doit être attestée</span></div><div class="panel-body" id="blacksmithEndorsements"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Conseil des maîtres forgerons</div><h2>Consécration finale</h2></div><span class="muted">Un titre, pas un niveau 16</span></div><div class="panel-body" id="blacksmithMasterCareer"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="progressionTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Apprentissage par la pratique</div><h2>Progression fondamentale</h2></div><span class="muted">La progression dépend désormais du savoir-faire, pas seulement du niveau</span></div><div class="panel-body" id="blacksmithProgression"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="futureTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Suite de la carrière</div><h2>Ce que la boucle fondamentale prépare</h2></div><span class="muted">Les systèmes suivants seront greffés sur cette base</span></div><div class="panel-body" id="blacksmithFuture"></div></section>
+</section>
+</div>
+</div>
+</main>
+<script src="../js/data.js"></script><script src="../js/core.js"></script><script src="../js/autonomy.js"></script><script src="job-ui.js"></script><script src="autonomy-ui.js"></script><script src="job-workshop.js"></script><script src="blacksmith.js"></script>
+  <script src="../js/fixed-work-timer.js"></script>
+</body></html>

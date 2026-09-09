@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Village — Entrepôt</title><link rel="stylesheet" href="css/style.css"></head>
+<body><header class="topbar"><div class="brand"><div class="brand-mark">📦</div><div><h1>Entrepôt communal</h1><div class="version">VIL0.3.27.3 — Stockage anti-blocage</div></div></div><div class="top-actions"><a class="btn" href="townhall.html">🏛️ Mairie</a><a class="btn primary" href="index.html">← Retour au village</a><button class="btn" id="saveWarehouseBtn">Sauvegarder</button></div></header>
+<main class="shell warehouse-shell">
+<section class="overview-strip warehouse-overview" id="warehouseOverview"></section>
+<section class="panel warehouse-food-panel"><div class="panel-head"><div><div class="eyebrow">Grenier & conservation</div><h2>🍲 Réserves alimentaires</h2></div><a class="mini-link" href="jobs/farmer.html#food">Gérer les rations à la Ferme →</a></div><div class="panel-body" id="warehouseFoodSecurity"></div></section>
+<section class="panel warehouse-upgrade"><div class="panel-head"><div><div class="eyebrow">Bâtiment évolutif</div><h2>Développement de l’Entrepôt</h2></div><span class="muted" id="warehouseLevelBadge"></span></div><div class="panel-body" id="warehouseUpgrade"></div></section>
+<section class="warehouse-grid">
+  <section class="panel"><div class="panel-head"><div><div class="eyebrow">Source de vérité économique</div><h2>Stocks du village</h2></div><div class="warehouse-filters"><select id="warehouseCategory"><option value="">Toutes catégories</option></select><input id="warehouseSearch" placeholder="Rechercher une ressource…"></div></div><div class="panel-body"><div id="warehouseResources" class="warehouse-resource-grid"></div></div></section>
+  <aside class="panel"><div class="panel-head"><h2>Répartition du stockage</h2></div><div class="panel-body" id="warehouseBreakdown"></div></aside>
+</section>
+<section class="warehouse-grid lower">
+  <section class="panel"><div class="panel-head"><div><div class="eyebrow">Traçabilité</div><h2>Lots qualitatifs</h2></div><span class="muted">Bois, minerais, récoltes & préparations alchimiques</span></div><div class="panel-body" id="warehouseLots"></div></section>
+  <section class="panel"><div class="panel-head"><div><div class="eyebrow">Développement</div><h2>Niveaux des bâtiments</h2></div></div><div class="panel-body" id="warehouseBuildings"></div></section>
+</section>
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Économie globale</div><h2>Journal des mouvements</h2></div><span class="muted">300 derniers mouvements conservés</span></div><div class="panel-body warehouse-ledger" id="warehouseLedger"></div></section>
+<section class="panel"><div class="panel-head"><h2>🏭 Stocks locaux & logistique métier</h2></div><div class="panel-body"><p>Chaque bâtiment possède désormais un stock métier séparé du stock communal. Les transferts et réservations seront gérés ici.</p><div id="localStorageLogistics"></div></div></section></main><script src="js/data.js"></script><script src="js/core.js"></script><script src="js/autonomy.js"></script><script src="js/storage-logistics.js"></script>
+<script src="js/warehouse.js"></script></body></html>

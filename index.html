@@ -30,7 +30,7 @@
   }
   .card {
     width: 100%;
-    max-width: 360px;
+    max-width: 420px;
     background: var(--panel);
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -100,6 +100,33 @@
   }
   #account-section p { color: var(--muted); font-size: 14px; }
   #account-section strong { color: var(--text); }
+  .games-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 20px 0;
+  }
+  .game-card {
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.15s ease;
+  }
+  .game-card:hover { border-color: var(--accent); }
+  .game-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .game-desc {
+    display: block;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
   #logout-btn {
     width: 100%;
     background: transparent;
@@ -132,6 +159,23 @@
 
     <div id="account-section" style="display:none;">
       <p>Connecté en tant que <strong id="user-email"></strong></p>
+
+      <!--
+        Un jeu = un bloc <a class="game-card">. Pour ajouter un jeu :
+        1) mets son dossier dans le dépôt GitHub (ex: games/snake/index.html)
+        2) duplique un bloc ci-dessous, change le href, le titre et la description.
+      -->
+      <div class="games-list">
+        <a class="game-card" href="village/index.html">
+          <span class="game-title">Village</span>
+          <span class="game-desc">Développe tes compétences dans les différents métiers pour faire évoluer ton village !</span>
+        </a>
+        <a class="game-card" href="games/exemple-jeu-2/index.html">
+          <span class="game-title">CyclingLegacy/span>
+          <span class="game-desc">Fais évoluer ton équipe ou une équipe existante dans le monde du cyclisme !</span>
+        </a>
+      </div>
+
       <button id="logout-btn" type="button">Se déconnecter</button>
     </div>
   </div>

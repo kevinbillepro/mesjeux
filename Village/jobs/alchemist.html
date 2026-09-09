@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Village — Alchimiste</title><link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body class="job-screen alchemist-screen" data-job="alchemist">
+<header class="topbar">
+<div class="brand"><div class="brand-mark">⚗️</div><div><h1>Laboratoire alchimique</h1><div class="version">VIL0.3.19 — Atelier du joueur au premier plan</div></div></div>
+<div class="top-actions"><a class="btn" href="../townhall.html">🏛️ Mairie</a><a class="btn primary" href="../index.html">← Retour au village</a></div>
+</header>
+<main class="job-shell">
+<section class="job-art-hero alchemist-hero">
+<div class="job-art-overlay"></div>
+<div class="job-art-content">
+<div class="eyebrow">Laboratoire villageois</div>
+<h2>Transformer la matière par le savoir et l’exécution</h2>
+<p>Le laboratoire n’est pas un simple menu de fabrication : étude des formules, sélection du procédé, choix des gestes, qualité de matière, catalyseurs, stabilité des lots et preuves de carrière composent une vraie pratique alchimique.</p>
+<div class="job-flow-banner"><span>📖 Étudier les formules</span><span>🧪 Choisir procédés &amp; gestes</span><span>🔥 Maîtriser la chauffe</span><span>✨ Stabiliser le lot</span><span>🏛️ Publier, rejoindre, rayonner</span></div>
+<div class="job-hero-stats"><div class="hero-stat-card"><span>Recherche</span><b>Comprendre d’abord la formule et ses seuils de stabilité.</b></div><div class="hero-stat-card"><span>Procédé</span><b>Gestes, chauffe et catalyse définissent pureté et régularité.</b></div><div class="hero-stat-card"><span>Rayonnement</span><b>Réseaux savants, mandats et sceaux prolongent la carrière.</b></div></div>
+<div class="job-manual-note"><b>L’autonomie du laboratoire</b> alimente le village en préparations courantes, mais <b>la précision, la recherche rare, les lots remarquables et la maîtrise</b> restent attachées au travail actif de l’Alchimiste.</div>
+</div>
+<div class="hero-corner-badge"><span>Atelier savant</span><b>Laboratoire actif</b><small>Étude · brassage · catalyse</small></div>
+</section>
+<section class="job-metrics standard-metrics" id="alchemistMetrics"></section>
+<section class="job-standard-status" id="alchemistStatus"></section>
+<div class="job-workshop-row">
+<section class="job-workshop">
+<div class="job-workshop-head">
+<div><div class="eyebrow">Travail du joueur · le cœur du métier</div><h2>Paillasse — étudier, puis conduire la préparation</h2></div>
+<span class="job-workshop-badge">Geste manuel · lots stables</span>
+</div>
+<div class="job-workshop-body">
+<div class="job-workshop-scene-col">
+<div class="work-scene alchemist" id="alchemistScene">
+<div class="aura"></div>
+<div class="hearth-base"></div>
+<div class="hearth-flame"></div>
+<div class="alembic">
+<div class="liquid"></div>
+<div class="bubble" style="left:34%;bottom:12%;width:7px;height:7px"></div>
+<div class="bubble" style="left:54%;bottom:8%;width:5px;height:5px;animation-duration:3.4s;animation-delay:.8s"></div>
+<div class="bubble" style="left:44%;bottom:16%;width:9px;height:9px;animation-duration:4.2s;animation-delay:1.6s"></div>
+</div>
+<div class="alembic-neck"></div>
+<div class="vapor" style="left:49%;bottom:66%;width:20px;height:20px"></div>
+<div class="vapor" style="left:53%;bottom:66%;width:26px;height:26px;animation-duration:5.8s;animation-delay:1.4s"></div>
+<div class="work-scene-vignette"></div>
+<div class="work-scene-status" id="alchemistSceneStatus">🧪 Paillasse prête pour un nouveau lot</div>
+</div>
+<div class="workshop-secondary">
+<a class="btn" href="#knowledgeTab">📖 Savoir &amp; gestes</a>
+<a class="btn" href="#lotsTab">🧪 Lots produits</a>
+</div>
+</div>
+<div class="job-workshop-controls">
+<div class="workshop-task">
+<div class="workshop-task-head"><b>Travail en cours</b><span class="muted">Une étude ou préparation active à la fois</span></div>
+<div id="alchemistTask"></div>
+</div>
+</div>
+</div>
+<div class="job-workshop-bench">
+<div class="job-workshop-bench-head">
+<div><div class="eyebrow">Paillasse</div><b>Formules accessibles</b></div>
+<span class="muted">La matière de l’Herboriste devient un produit alchimique</span>
+</div>
+<div id="alchemistRecipes"></div>
+</div>
+</section>
+<aside class="autonomy-aside">
+<div>
+<div class="eyebrow">En arrière-plan</div>
+<b>Autonomie du laboratoire</b>
+<small>Préparations courantes, rendement inférieur. Précision, recherche rare et lots remarquables restent liés au travail actif.</small>
+</div>
+<div class="autonomy-aside-stats">
+<div><span>Emplacements</span><b data-autonomy-slots="">—</b></div>
+<div><span>File</span><b data-autonomy-queue="">—</b></div>
+</div>
+<div data-autonomy-orders=""></div>
+<a class="autonomy-aside-link" data-open-autonomy="" href="#">Gérer les jobs autonomes →</a>
+</aside>
+</div>
+<div class="job-workspace">
+<nav aria-label="Sections Alchimiste" class="job-nav">
+<div class="job-nav-head"><small>Interface métier standard</small><b>⚗️ Alchimiste</b><span>Section : <strong data-job-current-section="">Savoir &amp; gestes</strong></span></div>
+<div class="job-nav-group"><div class="job-nav-group-title">Laboratoire</div>
+<button class="tab active" data-tab="knowledge"><span>📖</span><span><b class="job-nav-label">Savoir &amp; gestes</b><small>Formules, techniques &amp; compétences</small></span></button>
+<button class="tab" data-tab="lots"><span>🧪</span><span><b class="job-nav-label">Lots</b><small>Qualité &amp; stabilité</small></span></button>
+<button class="tab" data-tab="research"><span>📚</span><span><b class="job-nav-label">Recherche rare</b><small>Protocoles, catalyseurs &amp; uniques</small></span></button>
+<button class="tab" data-tab="scholarly"><span>🏛️</span><span><b class="job-nav-label">Réseaux savants</b><small>Laboratoires &amp; mandats</small></span></button>
+<button class="tab" data-tab="autonomy"><span>⚙️</span><span><b class="job-nav-label">Automatisation</b><small>Jobs autonomes du laboratoire</small></span></button>
+</div>
+<div class="job-nav-group"><div class="job-nav-group-title">Carrière</div>
+<button class="tab" data-tab="career"><span>📜</span><span><b class="job-nav-label">Grades &amp; contrats</b><small>Réseau professionnel</small></span></button>
+<button class="tab" data-tab="equipment"><span>🧰</span><span><b class="job-nav-label">Équipement</b><small>Paillasse &amp; installations</small></span></button>
+<button class="tab" data-tab="economy"><span>💰</span><span><b class="job-nav-label">Économie</b><small>Marché &amp; lots</small></span></button>
+<button class="tab" data-tab="specialization"><span>🧭</span><span><b class="job-nav-label">Spécialisations</b><small>Voies &amp; talents</small></span></button>
+<button class="tab" data-tab="mastery"><span>👑</span><span><b class="job-nav-label">Maîtrise</b><small>Sceaux, recommandations &amp; consécration</small></span></button>
+<button class="tab" data-tab="future"><span>🗺️</span><span><b class="job-nav-label">Développement</b><small>Prochaines étapes</small></span></button>
+</div>
+<div class="job-nav-group"><div class="job-nav-group-title">Suivi</div>
+<button class="tab" data-tab="progression"><span>📈</span><span><b class="job-nav-label">Progression</b><small>Niveau &amp; statistiques</small></span></button>
+</div>
+</nav>
+<div class="job-content">
+<section class="job-tab-panel hidden" id="autonomyTab">
+<section class="panel autonomous-work-panel"><div class="panel-head"><div><div class="eyebrow">Production parallèle</div><h2>Autonomie du laboratoire</h2></div><span class="muted">Préparations courantes · rendement inférieur</span></div><div class="panel-body" id="jobAutonomy"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="knowledgeTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Carnet de laboratoire</div><h2>Connaissance des formules</h2></div><span class="muted">Dossier progressif · points critiques · diagnostic · plafond de qualité</span></div><div class="panel-body" id="alchemistKnowledge"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Gestes techniques</h2><span class="muted">4 étapes · 12 gestes · prérequis croisés</span></div><div class="panel-body" id="alchemistTechniques"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Compétences</h2><span class="muted">Théorie · Préparation · Thermique · Stabilisation</span></div><div class="panel-body" id="alchemistSkills"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Procédés</h2><span class="muted">Prudent · équilibré · intensif</span></div><div class="panel-body" id="alchemistMethods"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="lotsTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Production qualitative</div><h2>Lots alchimiques</h2></div><span class="muted">Formule · qualité · stabilité · matière d’origine</span></div><div class="panel-body" id="alchemistLots"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="researchTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Recherche avancée</div><h2>Protocoles rares</h2></div><span class="muted">4 programmes · 12 étapes · déblocages permanents</span></div><div class="panel-body" id="alchemistResearchProjects"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Catalyseurs</h2><span class="muted">Pureté · traçabilité · synthèse</span></div><div class="panel-body" id="alchemistCatalysts"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Réserve catalytique</h2><span class="muted">Les meilleurs lots sont consommés en priorité</span></div><div class="panel-body" id="alchemistCatalystLots"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="scholarlyTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Laboratoire supérieur</div><h2>Laboratoires avancés</h2></div><span class="muted">Construire · configurer · spécialiser</span></div><div class="panel-body" id="alchemistAdvancedLabs"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Réseaux savants</h2><span class="muted">Adhésion · réputation · publications</span></div><div class="panel-body" id="alchemistScholarlyNetworks"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Commandes exceptionnelles</h2><span class="muted">Mandats uniques · critères extrêmes · preuves de carrière</span></div><div class="panel-body" id="alchemistExceptionalOrders"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="careerTab">
+<section class="panel"><div class="panel-head"><h2>Grade &amp; promotion</h2><span class="muted">La carrière demande des preuves de laboratoire</span></div><div class="panel-body" id="alchemistRank"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Renommée &amp; commanditaires</h2><span class="muted">6 commanditaires · confiance &amp; avantages</span></div><div class="panel-body" id="alchemistClients"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Propositions</h2><span class="muted">Qualité + stabilité + connaissance</span></div><div class="panel-body" id="alchemistOffers"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Contrats actifs</h2></div><div class="panel-body" id="alchemistContracts"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Historique</h2></div><div class="panel-body" id="alchemistHistory"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="equipmentTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Atelier</div><h2>Matériel de paillasse</h2></div><span class="muted">Préparation · chauffe · stabilisation · usure &amp; maîtrise</span></div><div class="panel-body" id="alchemistTools"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Installations du laboratoire</h2><span class="muted">Paillasse · protection · documentation · verrerie</span></div><div class="panel-body" id="alchemistGear"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="economyTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Débouchés</div><h2>Marché alchimique</h2></div><span class="muted">Demande locale · surplus · résidus</span></div><div class="panel-body" id="alchemistMarket"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Vendre les lots traçables</h2><span class="muted">Qualité · stabilité · contrôle · provenance</span></div><div class="panel-body" id="alchemistMarketLots"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="specializationTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Orientation de carrière</div><h2>Spécialisations</h2></div><span class="muted">3 voies · talents interdépendants · seconde voie de Maître</span></div><div class="panel-body" id="alchemistSpecializations"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="masteryTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Dossier de maîtrise</div><h2>Quatre sceaux professionnels</h2></div><span class="muted">Formules · procédé · catalyse · transmission</span></div><div class="panel-body" id="alchemistMasterySeals"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Recommandations</h2><span class="muted">La confiance des commanditaires devient une preuve de carrière</span></div><div class="panel-body" id="alchemistEndorsements"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><div><div class="eyebrow">Conseil de la Convergence</div><h2>Consécration professionnelle</h2></div><span class="muted">Au-delà du simple grade Maître alchimiste</span></div><div class="panel-body" id="alchemistMasterCareer"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="futureTab"><section class="panel"><div class="panel-head"><h2>Profondeur à venir</h2><span class="muted">Même contrat de profondeur que les cinq métiers de référence</span></div><div class="panel-body" id="alchemistFuture"></div></section></section>
+<section class="job-tab-panel hidden" id="progressionTab"><section class="panel"><div class="panel-head"><h2>Progression de l’Alchimiste</h2><span class="muted">VIL0.3.16.7 · carrière complète auditée</span></div><div class="panel-body" id="alchemistProgression"></div></section></section>
+</div>
+</div>
+</main>
+<script src="../js/data.js"></script><script src="../js/core.js"></script><script src="../js/autonomy.js"></script><script src="job-ui.js"></script><script src="autonomy-ui.js"></script><script src="job-workshop.js"></script><script src="alchemist.js"></script>
+  <script src="../js/fixed-work-timer.js"></script>
+</body>
+</html>

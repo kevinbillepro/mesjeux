@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Village — VIL0.3.22 — Audit métiers & fondation Cuisinier</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">📊</div><div><h1>Grand audit des métiers</h1><div class="version">VIL0.3.22 — Neuf métiers finalisés · Cuisinier : fondation en cours</div></div></div>
+  <div class="top-actions"><a class="btn" href="townhall.html">🏛️ Mairie</a><a class="btn" href="index.html">Retour au village</a><a class="btn" href="editor.html">Éditeur global</a><button class="btn primary" id="exportAuditBtn">Exporter le rapport</button></div>
+</header>
+<main class="audit-shell">
+  <section class="panel audit-intro"><div class="panel-body">
+    <div class="eyebrow">Contrat de profondeur commun</div><h2 id="auditTitle">Grand audit de parité</h2>
+    <p id="auditNote" class="muted"></p>
+    <div class="notice subtle"><b>Important :</b> la parité ne signifie pas copier l’Alchimiste. Elle exige que chaque métier possède une profondeur comparable sur les mêmes piliers, avec des mécaniques propres à son identité.</div>
+  </div></section>
+  <section class="audit-overview" id="auditOverview"></section>
+  <section class="panel"><div class="panel-head"><h2>Verdict global</h2><span class="audit-status" id="auditVerdictBadge"></span></div><div class="panel-body" id="auditVerdict"></div></section>
+  <section class="panel"><div class="panel-head"><h2>Scores par métier</h2><span class="muted">Même grille · preuves différentes</span></div><div class="panel-body audit-profession-scores" id="auditProfessionScores"></div></section>
+  <section class="panel"><div class="panel-head"><h2>Audit de carrière Fermier</h2><span class="muted">Jouabilité · accès · absence de blocages</span></div><div class="panel-body"><div id="farmerCareerAuditOverview"></div><div id="farmerCareerAudit" style="margin-top:10px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Éleveur — audit structurel VIL0.3.14.8</h2><span class="muted">Boucle + connaissance + carrière + reproduction + races rares + sceaux + titre juré + post-maîtrise</span></div><div class="panel-body"><div id="breederFoundationOverview"></div><div id="breederFoundationAudit" style="margin-top:10px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Parcours Éleveur 1 → 15</h2><span class="muted">10 jalons · accessibilité · absence de cercle vicieux · post-maîtrise</span></div><div class="panel-body"><div id="breederJourneyOverview"></div><div id="breederJourneyAudit" style="margin-top:12px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Herboriste — audit structurel VIL0.3.15.7</h2><span class="muted">Boucle + connaissance + économie + écologie + raretés + sceaux + titre juré + post-maîtrise</span></div><div class="panel-body"><div id="herbalistFoundationOverview"></div><div id="herbalistFoundationAudit" style="margin-top:10px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Parcours Herboriste 1 → 15</h2><span class="muted">10 jalons · accessibilité · programmes rares · absence de cercle vicieux · post-maîtrise</span></div><div class="panel-body"><div id="herbalistJourneyOverview"></div><div id="herbalistJourneyAudit" style="margin-top:12px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Alchimiste — audit structurel VIL0.3.16.7</h2><span class="muted">Boucle + connaissance + économie + recherche + sceaux + titre juré + post-maîtrise</span></div><div class="panel-body"><div id="alchemistFoundationOverview"></div><div id="alchemistFoundationAudit" style="margin-top:10px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Parcours Alchimiste 1 → 15</h2><span class="muted">10 jalons · accessibilité · recherche rare · absence de cercle vicieux · post-maîtrise</span></div><div class="panel-body"><div id="alchemistJourneyOverview"></div><div id="alchemistJourneyAudit" style="margin-top:12px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Forgeron — audit structurel VIL0.3.18.7</h2><span class="muted">Boucle + savoir + carrière + économie + alliages + raretés + maîtrise + intégration globale</span></div><div class="panel-body"><div id="blacksmithFoundationOverview"></div><div id="blacksmithFoundationAudit" style="margin-top:10px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Parcours Forgeron 1 → 15</h2><span class="muted">10 jalons · accessibilité · chaîne métallurgique · absence de cercle vicieux · post-maîtrise</span></div><div class="panel-body"><div id="blacksmithJourneyOverview"></div><div id="blacksmithJourneyAudit" style="margin-top:12px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Bricoleur — audit structurel VIL0.3.20.7</h2><span class="muted">Boucle + savoir + carrière + économie + assemblages + qualité + raretés + maîtrise + intégration globale</span></div><div class="panel-body"><div id="tinkererFoundationOverview"></div><div id="tinkererFoundationAudit" style="margin-top:10px"></div></div></section><section class="panel"><div class="panel-head"><h2>Parcours Bricoleur 1 → 15</h2><span class="muted">10 jalons · accessibilité · assemblages · ouvrages rares · absence de cercle vicieux · post-maîtrise</span></div><div class="panel-body"><div id="tinkererJourneyOverview"></div><div id="tinkererJourneyAudit" style="margin-top:12px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Chasseur — Grand audit VIL0.3.21.7</h2><span class="muted">Boucle · savoir · carrière · équipement · économie · écologie · raretés · maîtrise · intégration globale</span></div><div class="panel-body"><div id="hunterFoundationOverview"></div><div id="hunterFoundationAudit" style="margin-top:10px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Parcours Chasseur 1 → 15</h2><span class="muted">10 jalons · accessibilité · écologie · traques rares · absence de cercle vicieux · post-maîtrise</span></div><div class="panel-body"><div id="hunterJourneyOverview"></div><div id="hunterJourneyAudit" style="margin-top:12px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Cuisinier — Fondation VIL0.3.22</h2><span class="muted">Recettes · feu · qualité · réserves · autonomie · débouchés</span></div><div class="panel-body"><div id="cookFoundationOverview"></div><div id="cookFoundationAudit" style="margin-top:10px"></div></div></section>
+  <section class="panel"><div class="panel-head"><h2>Matrice de parité</h2><span class="muted">20 piliers fonctionnels · référence + neuf métiers</span></div><div class="panel-body audit-matrix" id="auditMatrix"></div></section>
+  <section class="panel"><div class="panel-head"><h2>Symétrie de couverture</h2><span class="muted">Volumes comparables sans imposer des nombres identiques</span></div><div class="panel-body" id="auditBalance"></div></section>
+  <section class="panel"><div class="panel-head"><h2>Écarts constatés & corrections</h2><span class="muted">Ce que les audits successifs ont réellement fait corriger</span></div><div class="panel-body audit-corrections" id="auditCorrections"></div></section>
+  <section class="panel"><div class="panel-head"><h2>Contrôles d’intégrité</h2><span class="muted">Références, données et couplage village ↔ métiers</span></div><div class="panel-body" id="auditIntegrity"></div></section>
+  <section class="panel"><div class="panel-head"><h2>Standard des métiers finalisés</h2></div><div class="panel-body"><p><b>Bûcheron, Mineur, Fermier, Éleveur, Herboriste, Alchimiste, Forgeron, Bricoleur et Chasseur forment désormais les neuf carrières de référence terminées de Village.</b> Chacune valide les vingt piliers de profondeur, une carrière complète jusqu’à la consécration et une vraie boucle post-maîtrise, avec des mécaniques propres à son identité.</p><p class="muted">VIL0.3.21.7 valide définitivement le Chasseur dans cette matrice. Sa boucle reste distincte des métiers de production : observation du terrain, connaissance animale, choix de prélèvement, gestion des populations, économie des prises, traques exceptionnelles et rôle de gardien des équilibres.</p></div></section>
+</main>
+<script src="js/data.js"></script><script src="js/core.js"></script><script src="js/autonomy.js"></script><script src="js/audit.js"></script><script src="js/cook-audit.js"></script>
+</body>
+</html>

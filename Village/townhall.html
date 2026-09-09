@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Village — Mairie</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="townhall-screen">
+<header class="topbar">
+  <div class="brand"><div class="brand-mark">🏛️</div><div><h1>Mairie</h1><div class="version">VIL0.3.22 — Registre civique</div></div></div>
+  <div class="top-actions"><a class="btn" href="profile.html">👤 Modifier le profil</a><a class="btn primary" href="index.html">← Retour au village</a></div>
+</header>
+<main class="shell townhall-shell">
+  <section class="panel townhall-hero">
+    <div class="townhall-identity"><div class="townhall-avatar" id="townHallAvatar">🧑‍🌾</div><div><div class="eyebrow">Registre du fondateur</div><h2 id="townHallPlayer">Joueur</h2><p id="townHallVillage">Village</p><small id="townHallPublicId">VIL-0000-0000</small></div></div>
+    <div class="profile-prestige"><span id="townHallTierIcon">🏕️</span><div><small>Prestige du village</small><b id="townHallPrestigeScore">0</b><strong id="townHallTierName">Village discret</strong></div></div>
+  </section>
+
+  <section class="overview-strip townhall-overview" id="townHallOverview"></section>
+
+  <section class="townhall-main-grid">
+    <section class="panel">
+      <div class="panel-head"><div><div class="eyebrow">Rayonnement du village</div><h2>⭐ Prestige</h2></div><span class="muted">Score v.<b id="townHallScoreVersion">1</b></span></div>
+      <div class="panel-body">
+        <div class="prestige-explainer">Le Prestige synthétise le développement du village, la profondeur des métiers, les hauts-faits, l’exploration, l’économie et la population. Les activités répétables sont plafonnées pour favoriser une partie variée.</div>
+        <div id="townHallPrestigeBreakdown" class="prestige-breakdown"></div>
+        <div class="prestige-next" id="townHallPrestigeNext"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-head"><div><div class="eyebrow">Administration</div><h2>📜 Registre civique</h2></div></div>
+      <div class="panel-body">
+        <div id="townHallPublicCard"></div>
+        <div class="townhall-actions-grid">
+          <a class="btn" href="profile.html">👤 Modifier l’identité</a>
+          <a class="btn" href="audit.html">📊 Audit des métiers</a>
+          <a class="btn" href="editor.html">🧭 Éditeur global</a>
+          <button class="btn" id="townHallExportBtn">📤 Exporter le profil de classement</button>
+        </div>
+        <div class="notice subtle townhall-note"><b>Rôle de la Mairie :</b> les éléments civiques et méta-progression sont regroupés ici afin de ne pas encombrer la création du profil ni les écrans de métier.</div>
+      </div>
+    </section>
+  </section>
+
+  <section class="panel achievements-panel townhall-achievements">
+    <div class="panel-head"><div><div class="eyebrow">Registre des accomplissements</div><h2>🏆 Hauts-faits</h2></div><div class="achievement-summary" id="townHallAchievementSummary"></div></div>
+    <div class="panel-body">
+      <div class="achievement-filters" id="townHallAchievementFilters"></div>
+      <div class="achievement-grid" id="townHallAchievementGrid"></div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head"><div><div class="eyebrow">Parcours</div><h2>Repères de carrière</h2></div></div>
+    <div class="panel-body" id="townHallCareer"></div>
+  </section>
+</main>
+<script src="js/data.js"></script><script src="js/core.js"></script><script src="js/autonomy.js"></script><script src="js/townhall.js"></script>
+</body>
+</html>

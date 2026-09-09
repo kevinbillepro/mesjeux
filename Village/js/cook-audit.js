@@ -1,0 +1,23 @@
+(() => {
+  const C=window.VillageCore, d=C.content, $=s=>document.querySelector(s), esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+  const checks=[],add=(name,ok,detail)=>checks.push({name,ok:!!ok,detail});
+  const job=(d.jobs||[]).find(x=>x.id==='cook'),building=(d.buildings||[]).find(x=>x.id==='cookhouse'),recipes=d.cookRecipes||[],heats=d.cookHeatModes||[],market=d.cookMarket||[],resIds=new Set((d.resources||[]).map(x=>x.id)),heatIds=new Set(heats.map(x=>x.id)),orders=(d.buildingWorkOrders||[]).filter(x=>x.jobId==='cook'),ach=(d.achievements||[]).filter(x=>x.criteria?.ref==='cook'||x.criteria?.ref==='cookhouse');
+  add('Métier Cuisinier ouvert',!!job&&Number(job.maxLevel||0)===15&&job.manualRanks===false,'Le socle est jouable jusqu’au plafond commun, sans grades manuels avant VIL0.3.22.2.');
+  add('Cuisine commune accessible au stade prévu',!!building&&Number(building.levels?.[0]?.villageLevel||0)===5&&(building.requiresBuildings||[]).includes('farm')&&(building.requiresBuildings||[]).includes('forge'),'La Cuisine exige Ferme, Atelier et Forge et s’ouvre au bourg prospère.');
+  add('Quatre recettes fondamentales',recipes.length===4,'Galettes, potée, ragoût de gibier et galettes de haricots couvrent plusieurs filières du village.');
+  add('Références ingrédients/sorties',recipes.every(r=>Object.keys(r.inputs||{}).every(id=>resIds.has(id))&&resIds.has(r.output?.resourceId)),'Toutes les recettes utilisent des ressources existantes et produisent un repas existant.');
+  add('Trois régimes de feu',heats.length===3&&recipes.every(r=>heatIds.has(r.idealHeat)),'Chaque recette possède un feu conseillé parmi doux, régulier et vif.');
+  add('Repas raccordés aux réserves',recipes.every(r=>Number((d.resources||[]).find(x=>x.id===r.output?.resourceId)?.foodValue||0)>0),'Toutes les sorties de cuisine sont de vraies ressources alimentaires consommables par le village.');
+  add('Transformation alimentaire non punitive',recipes.every(r=>{const input=Object.entries(r.inputs||{}).reduce((n,[id,q])=>n+Number((d.resources||[]).find(x=>x.id===id)?.foodValue||0)*Number(q||0),0),out=Number((d.resources||[]).find(x=>x.id===r.output?.resourceId)?.foodValue||0)*Number(r.output?.quantity||0);return out+1e-9>=input;}),'La cuisson ne détruit pas de valeur alimentaire nette ; elle valorise modestement les ingrédients au prix du combustible et du temps.');
+  add('Autonomie de base',orders.length===2&&orders.every(o=>o.buildingId==='cookhouse'),'Deux productions déléguées existent sans générer de lots qualitatifs actifs.');
+  add('Débouchés simples cohérents',market.length===4&&market.every(m=>resIds.has(m.resourceId)&&Number(m.basePrice||0)>0),'Chaque repas de base possède un débouché simple avant l’économie avancée VIL0.3.22.3.');
+  add('Premiers hauts-faits',ach.length>=4,'Construction, première préparation, niveau 3 et vingt portions donnent des jalons dès la boucle fondamentale.');
+  const failed=checks.filter(x=>!x.ok).length;
+  const overview=$('#cookFoundationOverview'),body=$('#cookFoundationAudit');
+  if(overview)overview.innerHTML=`<div class="audit-verdict ${failed?'fail':'pass'}"><strong>${failed?'Le socle Cuisinier présente encore un écart.':'Boucle fondamentale Cuisinier validée.'}</strong><p>${checks.length-failed}/${checks.length} contrôles passent. Le Cuisinier reste volontairement hors de la matrice des métiers finalisés jusqu’à VIL0.3.22.7.</p></div>`;
+  if(body)body.innerHTML=`<div class="integrity-grid">${checks.map(x=>`<div class="integrity-check ${x.ok?'pass':'fail'}"><span>${x.ok?'✓':'✕'}</span><div><b>${esc(x.name)}</b><small>${esc(x.detail)}</small></div></div>`).join('')}</div>`;
+  const report=Object.assign({},window.VillageParityAudit?.report||{}, {version:d.meta?.version,schema:d.meta?.schema,verdict:failed?'cook_foundation_gaps':'nine_professions_complete_cook_foundation_validated',cookFoundationAudit:checks,cookFoundationSummary:{passed:checks.length-failed,total:checks.length},cookFoundationStatus:failed?'gaps':'foundation_validated',cookFinalized:false,next:'VIL0.3.22.1 — Connaissance culinaire, gestes & progression'});
+  if(window.VillageParityAudit)window.VillageParityAudit.report=report;
+  const btn=$('#exportAuditBtn');if(btn)btn.onclick=()=>{const blob=new Blob([JSON.stringify(report,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='VIL0.3.22-audit-metiers.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500);};
+  window.VillageCookAudit={checks,failed,report};
+})();

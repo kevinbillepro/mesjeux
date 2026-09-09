@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Village — Éleveur</title>
+<link href="../css/style.css" rel="stylesheet"/>
+</head>
+<body class="breeder-screen" data-job="breeder">
+<header class="topbar">
+<div class="brand"><div class="brand-mark">🐑</div><div><h1>Éleveur</h1><div class="version">VIL0.3.19 — Atelier du joueur au premier plan</div></div></div>
+<div class="top-actions"><a class="btn" href="../townhall.html">🏛️ Mairie</a><a class="btn" href="../warehouse.html">📦 Entrepôt</a><a class="btn primary" href="../index.html">← Retour au village</a></div>
+</header>
+<main class="job-shell">
+<section class="job-art-hero breeder-hero"><div class="job-art-overlay"></div><div class="job-art-content">
+<div class="eyebrow">Étable &amp; enclos</div>
+<h2>Un troupeau vivant, pas une machine à ressources</h2>
+<p>Les animaux produisent seulement s’ils sont nourris, propres, en bonne santé et suffisamment sereins. L’Éleveur développe une vraie carrière : pratique, connaissance des espèces, sélection des lignées, organisation pastorale et commandes spécialisées.</p>
+<div class="job-flow-banner"><span>🩺 Soigner &amp; observer</span><span>🌿 Organiser pâtures &amp; rations</span><span>🐣 Gérer naissances &amp; lignées</span><span>🥛 Récolter des produits suivis</span><span>👑 Ouvrir les conservatoires</span></div>
+<div class="job-hero-stats"><div class="hero-stat-card"><span>Bien-être</span><b>Chaque espèce répond à la qualité réelle des soins apportés.</b></div><div class="hero-stat-card"><span>Lignées</span><b>Naissances, génétique et sélection font progresser l’élevage.</b></div><div class="hero-stat-card"><span>Organisation</span><b>Pâtures, rations et cadence soutiennent les commandes spécialisées.</b></div></div>
+<div class="job-manual-note"><b>Le bâtiment peut produire en continu</b>, mais <b>le bien-être, les techniques, la génétique, les raretés et les preuves de maîtrise</b> restent le domaine du jeu actif de l’Éleveur.</div>
+</div><div class="hero-corner-badge"><span>Vie animale</span><b>Étable active</b><small>Soins · lignées · produits</small></div></section>
+<section class="job-metrics standard-metrics" id="breederMetrics"></section>
+<section class="job-standard-status" id="breederStatus"></section><div class="job-workshop-row">
+<section class="job-workshop">
+<div class="job-workshop-head"><div><div class="eyebrow">Travail du joueur · le cœur du métier</div><h2>Étable — observer, nourrir, soigner le troupeau</h2></div><span class="job-workshop-badge">Soin manuel · bien-être &amp; expertise</span></div>
+<div class="job-workshop-body"><div class="job-workshop-scene-col"><div class="work-scene breeder" id="breederScene"><div class="pasture-sky"></div><div class="pasture-hill"></div><div class="barn-shape"><i></i></div><div class="hay-stack">🌾</div><div class="animal-shape a1">🐄</div><div class="animal-shape a2">🐐</div><div class="animal-shape a3">🐔</div><div class="work-tool">🪣</div><div class="work-scene-vignette"></div><div class="work-scene-tags" data-scene-mirror="🐾@#breederCapacityLabel|🌿@#breederStatus"></div><div class="work-scene-status" id="breederSceneStatus">🐾 Troupeau calme et disponible</div></div><div class="workshop-task"><div class="workshop-task-head"><b>Soin en cours</b><span class="muted">Une action active à la fois</span></div><div class="panel-body" id="breederActiveCare"></div></div></div><div class="job-workshop-controls"><div class="workshop-callout"><span>🩺</span><div><b>Le troupeau répond à tes soins</b><small>Choisis une espèce, une action et la technique adaptée. Les compétences et la connaissance de l’animal changent la qualité du soin.</small></div></div><div class="panel-body" id="breederCareActions"></div></div></div>
+<div class="job-workshop-bench"><div class="job-workshop-bench-head"><div><div class="eyebrow">Cheptel actuel</div><b>Animaux de l’exploitation</b></div><span class="muted" id="breederCapacityLabel">Ramasser · accueillir · céder · surveiller les besoins</span></div><div class="panel-body" id="breederHerd"></div></div></section>
+<aside class="autonomy-aside"><div><div class="eyebrow">En arrière-plan</div><b>Automatisation de l’Étable</b><small>Appui logistique uniquement. La connaissance animale, les techniques, la sélection et les races rares restent des activités du joueur.</small></div><div class="autonomy-aside-stats"><div><span>Emplacements</span><b data-autonomy-slots="">—</b></div><div><span>File</span><b data-autonomy-queue="">—</b></div></div><div data-autonomy-orders=""></div><a class="autonomy-aside-link" data-open-autonomy="" href="#">Gérer les jobs autonomes →</a></aside>
+</div>
+<div class="job-workspace">
+<nav aria-label="Sections du métier Éleveur" class="job-nav">
+<div class="job-nav-head"><small>Métier</small><b>Éleveur</b><span>Section : <strong data-job-current-section="">Élevage</strong></span></div>
+<div class="job-nav-group"><div class="job-nav-group-title">Exploitation</div>
+<button class="tab active" data-tab="activity"><span>🐾</span><span><b class="job-nav-label">Élevage</b><small>Animaux &amp; production</small></span></button>
+<button class="tab" data-tab="care"><span>🩺</span><span><b class="job-nav-label">Soins</b><small>Besoins &amp; actions</small></span></button>
+<button class="tab" data-tab="breeding"><span>🧬</span><span><b class="job-nav-label">Reproduction</b><small>Lignées &amp; sélection</small></span></button>
+<button class="tab" data-tab="pasture"><span>🌿</span><span><b class="job-nav-label">Pâturages &amp; ration</b><small>Saisons &amp; alimentation</small></span></button><button class="tab" data-tab="autonomy"><span>⚙️</span><span><b class="job-nav-label">Automatisation</b><small>Jobs autonomes de l’Étable</small></span></button>
+</div>
+<div class="job-nav-group"><div class="job-nav-group-title">Apprentissage</div>
+<button class="tab" data-tab="knowledge"><span>📖</span><span><b class="job-nav-label">Connaissance</b><small>Espèces &amp; techniques</small></span></button>
+</div>
+<div class="job-nav-group"><div class="job-nav-group-title">Carrière</div>
+<button class="tab" data-tab="career"><span>🎖️</span><span><b class="job-nav-label">Grades &amp; contrats</b><small>Promotion &amp; commandes</small></span></button>
+<button class="tab" data-tab="equipment"><span>🧰</span><span><b class="job-nav-label">Équipement</b><small>Outils &amp; installations</small></span></button>
+<button class="tab" data-tab="economy"><span>🪙</span><span><b class="job-nav-label">Économie</b><small>Marché &amp; bilan</small></span></button>
+<button class="tab" data-tab="specialization"><span>🧭</span><span><b class="job-nav-label">Spécialisations</b><small>Orientation de l’élevage</small></span></button>
+<button class="tab" data-tab="highlevel"><span>👑</span><span><b class="job-nav-label">Haut niveau</b><small>Races rares &amp; conservatoires</small></span></button>
+<button class="tab" data-tab="mastery"><span>🏅</span><span><b class="job-nav-label">Consécration</b><small>Sceaux &amp; titre juré</small></span></button>
+</div>
+<div class="job-nav-group"><div class="job-nav-group-title">Village</div>
+<button class="tab" data-tab="outlets"><span>🔗</span><span><b class="job-nav-label">Filières</b><small>Nourriture &amp; matières</small></span></button>
+<button class="tab" data-tab="progression"><span>📈</span><span><b class="job-nav-label">Progression</b><small>Métier &amp; savoir-faire</small></span></button>
+</div>
+</nav>
+<div class="job-content">
+<section class="job-tab-panel hidden" id="autonomyTab"><section class="panel autonomous-work-panel"><div class="panel-head"><div><div class="eyebrow">Production parallèle</div><h2>Autonomie de l’Étable &amp; des enclos</h2></div><span class="muted">Appui logistique du village</span></div><div class="panel-body" id="jobAutonomy"></div></section></section><section class="job-tab-panel" id="activityTab">
+<section class="panel lower-panel"><div class="panel-head"><h2>Production prête</h2><span class="muted">La production s’arrête si les besoins se dégradent</span></div><div class="panel-body" id="breederProduction"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="careTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Soins au premier plan</div><h2>Atelier de soin déplacé au-dessus</h2></div><span class="muted">Toujours accessible, quelle que soit la section</span></div><div class="panel-body"><div class="notice subtle"><b>Les actions de soin sont désormais dans l’atelier principal en haut de page.</b> Cet onglet reste comme repère de navigation pour la carrière existante.</div></div></section></section>
+<section class="job-tab-panel hidden" id="pastureTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Calendrier pastoral</div><h2>Saison &amp; sécurité fourragère</h2></div><span class="muted">Herbe · réserves · besoins du troupeau</span></div><div class="panel-body" id="breederPastoralSeason"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Pâturages</h2><span class="muted">Biomasse, état du couvert &amp; repousse saisonnière</span></div><div class="panel-body" id="breederPastures"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Plans d’alimentation</h2><span class="muted">Une pâture et une ration par espèce</span></div><div class="panel-body" id="breederFeedingPlans"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Historique pastoral</h2><span class="muted">Pression de pâturage &amp; préparation de l’hiver</span></div><div class="panel-body" id="breederPastoralHistory"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="breedingTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Sélection du cheptel</div><h2>Reproduction &amp; lignées</h2></div><span class="muted">Parents · gestation · héritage</span></div><div class="panel-body" id="breederBreedingSummary"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Registre des animaux</h2><span class="muted">Sexe · âge · génération · qualité génétique</span></div><div class="panel-body" id="breederAnimalRegistry"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Accouplements</h2><span class="muted">Choisir les reproducteurs et préserver la diversité</span></div><div class="panel-body" id="breederPairing"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Lignées</h2><span class="muted">Suivi des familles et qualité moyenne</span></div><div class="panel-body" id="breederLineages"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="knowledgeTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Apprendre du troupeau</div><h2>Connaissance animale</h2></div><span class="muted">Inconnue → Observée → Comprise → Maîtrisée</span></div><div class="panel-body" id="breederKnowledgeSummary"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Codex des espèces</h2><span class="muted">Les repères se révèlent avec la pratique</span></div><div class="panel-body" id="breederSpeciesKnowledge"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Compétences de soin</h2><span class="muted">4 savoir-faire techniques · 10 niveaux chacun</span></div><div class="panel-body" id="breederSkills"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Techniques apprises</h2><span class="muted">Les techniques avancées exigent compétence et connaissance de l’espèce</span></div><div class="panel-body" id="breederTechniques"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="careerTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Carrière professionnelle</div><h2>Grades &amp; réputation</h2></div><span class="muted">6 grades · progression par preuves</span></div><div class="panel-body" id="breederRankProgress"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Situation de carrière</h2><span class="muted">Réputation, contrats &amp; livraisons remarquables</span></div><div class="panel-body" id="breederCareerSummary"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Commanditaires</h2><span class="muted">La confiance ouvre les commandes suivantes</span></div><div class="panel-body" id="breederClients"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Offres de contrats</h2><span class="muted">Renouvellement automatique · 90 secondes</span></div><div class="panel-body" id="breederContractOffers"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Contrats actifs</h2><span class="muted">Le stock ne suffit pas : le troupeau doit aussi respecter le cahier des charges</span></div><div class="panel-body" id="breederActiveContracts"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Historique</h2><span class="muted">Livraisons, remarquables &amp; échecs</span></div><div class="panel-body" id="breederContractHistory"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="equipmentTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Matériel de travail</div><h2>Outils de soin</h2></div><span class="muted">4 familles · usure &amp; entretien</span></div><div class="panel-body" id="breederTools"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Installations &amp; équipement</h2><span class="muted">Abris · alimentation · conduite</span></div><div class="panel-body" id="breederGear"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="economyTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Économie de l’exploitation</div><h2>Marché animalier</h2></div><span class="muted">Demande locale dynamique</span></div><div class="panel-body" id="breederEconomy"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Bilan d’exploitation</h2><span class="muted">Revenus, investissements &amp; entretien</span></div><div class="panel-body" id="breederBalance"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="specializationTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Orientation professionnelle</div><h2>Spécialisations Éleveur</h2></div><span class="muted">Aviculture · lait · pastoralisme</span></div><div class="panel-body" id="breederSpecializations"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="highlevelTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Sélection d’exception</div><h2>Haut niveau Éleveur</h2></div><span class="muted">Conservatoires · souches fondatrices · domaine unique</span></div><div class="panel-body" id="breederHighLevelSummary"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Programmes de conservation</h2><span class="muted">Céder des sujets réellement sélectionnés pour restaurer les races anciennes</span></div><div class="panel-body" id="breederUniquePrograms"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Races rares</h2><span class="muted">Couples fondateurs, reproduction locale &amp; productions de prestige</span></div><div class="panel-body" id="breederRareBreeds"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Registre haut niveau</h2><span class="muted">Contributions &amp; accomplissements</span></div><div class="panel-body" id="breederHighLevelHistory"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="masteryTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Reconnaissance professionnelle</div><h2>Renommée de l’Éleveur</h2></div><span class="muted">Réputation · paliers · avantages</span></div><div class="panel-body" id="breederRenown"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Sceaux de maîtrise</h2><span class="muted">Soins · lignées · pastoralisme · service au village</span></div><div class="panel-body" id="breederMasterySeals"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Recommandations</h2><span class="muted">La confiance des commanditaires devient une preuve de carrière</span></div><div class="panel-body" id="breederEndorsements"></div></section>
+<section class="panel lower-panel"><div class="panel-head"><h2>Dossier de consécration</h2><span class="muted">Chef-d’œuvre · titre juré · mandats de maître</span></div><div class="panel-body" id="breederMasterCareer"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="outletsTab">
+<section class="panel"><div class="panel-head"><div><div class="eyebrow">Chaîne inter-métiers</div><h2>Débouchés de l’élevage</h2></div><span class="muted">Premiers raccords réels au village</span></div><div class="panel-body" id="breederOutlets"></div></section>
+</section>
+<section class="job-tab-panel hidden" id="progressionTab">
+<section class="panel"><div class="panel-head"><h2>Progression de l’Éleveur</h2><span class="muted">VIL0.3.14.8 — carrière auditée de l’entrée au post-maîtrise</span></div><div class="panel-body" id="breederProgression"></div></section>
+</section>
+</div>
+</div>
+</main>
+<script src="../js/data.js"></script><script src="../js/core.js"></script><script src="../js/autonomy.js"></script><script src="job-ui.js"></script><script src="autonomy-ui.js"></script><script src="job-workshop.js"></script><script src="breeder.js"></script>
+  <script src="../js/fixed-work-timer.js"></script>
+</body>
+</html>
