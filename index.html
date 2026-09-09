@@ -161,7 +161,18 @@
       messageEl.style.color = isError ? "var(--error)" : "var(--success)";
     }
 
+    // Evite d'envoyer une requête à Supabase avec des champs vides : sans ça,
+    // Supabase répond avec le message trompeur "Anonymous sign-ins are disabled".
+    function credentialsAreFilled() {
+      if (!emailInput.value || !passwordInput.value) {
+        showMessage("Merci de remplir l'email et le mot de passe.", true);
+        return false;
+      }
+      return true;
+    }
+
     document.getElementById("signup-btn").addEventListener("click", async () => {
+      if (!credentialsAreFilled()) return;
       const { error } = await db.auth.signUp({
         email: emailInput.value,
         password: passwordInput.value,
@@ -174,6 +185,7 @@
     });
 
     document.getElementById("login-btn").addEventListener("click", async () => {
+      if (!credentialsAreFilled()) return;
       const { error } = await db.auth.signInWithPassword({
         email: emailInput.value,
         password: passwordInput.value,
